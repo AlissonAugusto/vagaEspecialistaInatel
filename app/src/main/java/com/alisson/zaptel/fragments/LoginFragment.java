@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.alisson.zaptel.MainActivity;
 import com.alisson.zaptel.R;
 import com.alisson.zaptel.controllers.RestController;
 import com.android.volley.Request;
@@ -84,20 +85,15 @@ public class LoginFragment extends Fragment {
                     password = String.valueOf(editTextPassword.getText());
 
                     RestController restController = new RestController();
-                    String tokenId = restController.loginUser(mContext, email, password);
-                    if (!tokenId.equals("")) {
-                        final SharedPreferences sharedSettings = getActivity().
-                                getSharedPreferences(getActivity().getClass().
-                                        getSimpleName(), Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedSettings.edit();
-                        editor.putBoolean(STATE_CHK_REMEMBER, chkRemember.isChecked());
-                        editor.putString(STATE_USER_EMAIL, editTextEmail.getText().toString());
-                        editor.putString(STATE_USER_PASSWORD, editTextPassword.getText().toString());
-                        editor.apply();
-
-                    } else {
-                        Toast.makeText(mContext, "ERROR", Toast.LENGTH_LONG);
-                    }
+                    restController.loginUser(mContext, email, password);
+                    final SharedPreferences sharedSettings = getActivity().
+                            getSharedPreferences(getActivity().getClass().
+                                    getSimpleName(), Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedSettings.edit();
+                    editor.putBoolean(STATE_CHK_REMEMBER, chkRemember.isChecked());
+                    editor.putString(STATE_USER_EMAIL, editTextEmail.getText().toString());
+                    editor.putString(STATE_USER_PASSWORD, editTextPassword.getText().toString());
+                    editor.apply();
                 }
             }
         });
@@ -125,5 +121,14 @@ public class LoginFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+    }
+
+    public void callContactsFragment(){
+        ContactsFragment contactsFragment = new ContactsFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, contactsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

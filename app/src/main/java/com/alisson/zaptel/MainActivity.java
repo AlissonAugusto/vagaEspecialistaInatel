@@ -28,6 +28,9 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String userId = null;
+    public static String tokenId = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.alisson.zaptel.MainActivity;
+import com.alisson.zaptel.fragments.LoginFragment;
 import com.alisson.zaptel.models.User;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,13 +17,13 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Console;
 import java.io.UnsupportedEncodingException;
 
 public class RestController {
     String API_BASE_URL = "http://178.128.7.94:3001/api/users/";
 
-    public String loginUser(final Context context, String email, String password) {
-        final String[] tokenId = {""};
+    public void loginUser(final Context context, String email, String password) {
         String url = API_BASE_URL + "login";
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         final JSONObject jsonObject = new JSONObject();
@@ -40,28 +42,23 @@ public class RestController {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            tokenId[0] = response.getString("id");
+                            MainActivity.tokenId = response.getString("id");
+                            LoginFragment loginFragment = new LoginFragment();
+                            loginFragment.callContactsFragment();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        Toast.makeText(context, "opa: " + tokenId[0], Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        try {
-                            String responseBody = new String(error.networkResponse.data, "utf-8");
-                        } catch (UnsupportedEncodingException e) {
-                            e.printStackTrace();
-                        }
-                        tokenId[0] = "";
+
                     }
                 }
         );
 
         requestQueue.add(jsonObjectRequest);
-        return tokenId[0];
     }
 
     public Integer createUser(final Context context, User user) {
@@ -92,17 +89,12 @@ public class RestController {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        Toast.makeText(context, "opa: " + userId[0], Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        try {
-                            String responseBody = new String(error.networkResponse.data, "utf-8");
-                        } catch (UnsupportedEncodingException e) {
-                            e.printStackTrace();
-                        }
+
                     }
                 }
         );
