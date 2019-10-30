@@ -35,7 +35,7 @@
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/userDateOfBirth"
+        android:id="@+id/userDateOfBirthRegister"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -45,7 +45,7 @@
         android:inputType="date" />
 
     <EditText
-        android:id="@+id/userPhone"
+        android:id="@+id/userPhoneRegister"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -76,7 +76,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonSave"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
