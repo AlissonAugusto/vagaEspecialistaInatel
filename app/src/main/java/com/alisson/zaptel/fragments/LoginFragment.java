@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.alisson.zaptel.R;
 import com.alisson.zaptel.controllers.RestController;
@@ -94,10 +96,23 @@ public class LoginFragment extends Fragment {
                         editor.putString(STATE_USER_EMAIL, editTextEmail.getText().toString());
                         editor.putString(STATE_USER_PASSWORD, editTextPassword.getText().toString());
                         editor.apply();
-                    } else{
+
+                    } else {
                         Toast.makeText(mContext, "ERROR", Toast.LENGTH_LONG);
                     }
                 }
+            }
+        });
+
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RegisterFragment registerFragment = new RegisterFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.container, registerFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 
