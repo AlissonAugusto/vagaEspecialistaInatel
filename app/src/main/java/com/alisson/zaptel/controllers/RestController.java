@@ -215,7 +215,6 @@ public class RestController {
                                         try {
                                             int count = response.getInt("count");
                                             if (count == 1) {
-                                                Toast.makeText(context, "User deactivated successfully", Toast.LENGTH_LONG).show();
                                                 for (int i = 0; i < fragmentManager.getBackStackEntryCount(); ++i) {
                                                     fragmentManager.popBackStack();
                                                 }
@@ -224,6 +223,7 @@ public class RestController {
                                                 fragmentTransaction.replace(R.id.container, loginFragment);
                                                 fragmentTransaction.addToBackStack(null);
                                                 fragmentTransaction.commit();
+                                                Toast.makeText(context, "User deactivated successfully", Toast.LENGTH_LONG).show();
                                             } else {
                                                 Toast.makeText(context, "Error on deactivating user", Toast.LENGTH_SHORT).show();
                                             }

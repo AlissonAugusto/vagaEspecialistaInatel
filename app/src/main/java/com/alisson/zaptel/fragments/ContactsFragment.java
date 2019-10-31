@@ -14,11 +14,17 @@ import android.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.alisson.zaptel.R;
 import com.alisson.zaptel.controllers.RestController;
 
 public class ContactsFragment extends Fragment {
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+
     private Context mContext;
 
     @Override
@@ -39,6 +45,16 @@ public class ContactsFragment extends Fragment {
 
         getActivity().setTitle("Contacts");
         setHasOptionsMenu(true);
+
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.contacts_recycler_view);
+
+        recyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(mContext);
+        recyclerView.setLayoutManager(layoutManager);
+
+        mAdapter = new MyAdapter(myDataset);
+        recyclerView.setAdapter(mAdapter);
 
         return rootView;
     }
