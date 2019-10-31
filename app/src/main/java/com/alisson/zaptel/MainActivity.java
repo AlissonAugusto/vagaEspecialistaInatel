@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static int userId;
     public static String tokenId = null;
+    public static String userEmail = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

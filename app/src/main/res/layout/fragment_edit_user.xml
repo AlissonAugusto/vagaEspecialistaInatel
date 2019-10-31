@@ -90,12 +90,12 @@
         android:text="Save User" />
 
     <Button
-        android:id="@+id/buttonDesactivateUser"
+        android:id="@+id/buttonDeactivateUser"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Desactivate User" />
+        android:text="Deactivate User" />
 
     <Button
         android:id="@+id/buttonLogout"

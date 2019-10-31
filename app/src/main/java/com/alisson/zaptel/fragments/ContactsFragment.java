@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.alisson.zaptel.R;
+import com.alisson.zaptel.controllers.RestController;
 
 public class ContactsFragment extends Fragment {
     private Context mContext;
@@ -39,8 +40,6 @@ public class ContactsFragment extends Fragment {
         getActivity().setTitle("Contacts");
         setHasOptionsMenu(true);
 
-
-
         return rootView;
     }
 
@@ -55,12 +54,9 @@ public class ContactsFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case 0:
-                EditUserFragment editUserFragment = new EditUserFragment();
+                RestController restController = new RestController();
                 FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.container, editUserFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                restController.getUser(mContext, fragmentManager);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
