@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.fragment.app.Fragment;
 
@@ -38,12 +39,13 @@ public class RegisterFragment extends Fragment {
     public RegisterFragment() {
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_register,
                 container, false);
+
+        getActivity().setTitle("Register");
 
         editTextUserNameRegister = (EditText) rootView.findViewById(R.id.userNameRegister);
         editTextUserEmailRegister = (EditText) rootView.findViewById(R.id.userEmailRegister);
@@ -82,12 +84,7 @@ public class RegisterFragment extends Fragment {
                     }
 
                     RestController restController = new RestController();
-                    Integer userId = restController.createUser(mContext, user);
-                    if (userId != null) {
-                        getActivity().onBackPressed();
-                    } else {
-                        Toast.makeText(mContext, "ERROR", Toast.LENGTH_LONG).show();
-                    }
+                    restController.createUser(mContext, user);
                 } else{
                     Toast.makeText(mContext, "It's necessary to fill all information", Toast.LENGTH_LONG).show();
                 }

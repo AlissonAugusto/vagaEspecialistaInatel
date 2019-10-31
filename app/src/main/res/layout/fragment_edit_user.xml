@@ -6,16 +6,16 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/userNameRegister"
+        android:id="@+id/userNameEdit"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="120dp"
         android:ems="10"
         android:hint="Name" />
 
     <EditText
-        android:id="@+id/userEmailRegister"
+        android:id="@+id/userEmailEdit"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -25,7 +25,7 @@
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/userPasswordRegister"
+        android:id="@+id/userPasswordEdit"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -35,7 +35,7 @@
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/userDateOfBirthRegister"
+        android:id="@+id/userDateOfBirthEdit"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -45,7 +45,7 @@
         android:inputType="date" />
 
     <EditText
-        android:id="@+id/userPhoneRegister"
+        android:id="@+id/userPhoneEdit"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -55,32 +55,53 @@
         android:inputType="phone" />
 
     <RadioGroup
-        android:id="@+id/userGenderRegister"
+        android:id="@+id/userGenderEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp">
-        <RadioButton android:id="@+id/radio_male"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male" />
-        <RadioButton android:id="@+id/radio_female"
+
+        <RadioButton
+            android:id="@+id/radio_female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Female" />
-        <RadioButton android:id="@+id/radio_other"
+
+        <RadioButton
+            android:id="@+id/radio_other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Other" />
     </RadioGroup>
 
     <Button
-        android:id="@+id/buttonSave"
+        android:id="@+id/buttonSaveEdition"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Register" />
+        android:text="Save User" />
 
+    <Button
+        android:id="@+id/buttonDesactivateUser"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Desactivate User" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Logout" />
 </LinearLayout>

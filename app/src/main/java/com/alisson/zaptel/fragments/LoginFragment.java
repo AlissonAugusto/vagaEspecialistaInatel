@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -60,6 +61,8 @@ public class LoginFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_login,
                 container, false);
 
+        getActivity().setTitle("Login");
+
         editTextEmail = (EditText) rootView.findViewById(R.id.userEmail);
         editTextPassword = (EditText) rootView.findViewById(R.id.userPassword);
         buttonLogin = (Button) rootView.findViewById(R.id.buttonLogin);
@@ -85,7 +88,10 @@ public class LoginFragment extends Fragment {
                     password = String.valueOf(editTextPassword.getText());
 
                     RestController restController = new RestController();
-                    restController.loginUser(mContext, email, password);
+                    FragmentManager fragmentManager = getFragmentManager();
+
+                    restController.loginUser(mContext, fragmentManager, email, password);
+
                     final SharedPreferences sharedSettings = getActivity().
                             getSharedPreferences(getActivity().getClass().
                                     getSimpleName(), Context.MODE_PRIVATE);
@@ -121,14 +127,5 @@ public class LoginFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-    }
-
-    public void callContactsFragment(){
-        ContactsFragment contactsFragment = new ContactsFragment();
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, contactsFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
     }
 }
