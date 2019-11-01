@@ -52,7 +52,7 @@ public class EditUserFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_edit_user,
                 container, false);
 
-        getActivity().setTitle("Register");
+        getActivity().setTitle("Edit User");
 
         editTextUserNameEdit = (EditText) rootView.findViewById(R.id.userNameEdit);
         editTextUserEmailEdit = (EditText) rootView.findViewById(R.id.userEmailEdit);

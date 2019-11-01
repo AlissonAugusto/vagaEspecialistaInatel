@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -100,6 +101,8 @@ public class LoginFragment extends Fragment {
                     editor.putString(STATE_USER_EMAIL, editTextEmail.getText().toString());
                     editor.putString(STATE_USER_PASSWORD, editTextPassword.getText().toString());
                     editor.apply();
+                } else{
+                    Toast.makeText(mContext, "It's necessary to enter with email and password", Toast.LENGTH_SHORT).show();
                 }
             }
         });

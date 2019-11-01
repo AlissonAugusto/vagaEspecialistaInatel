@@ -64,7 +64,6 @@ public class RestController {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
                         Toast.makeText(context, "ERROR", Toast.LENGTH_LONG).show();
                     }
                 }

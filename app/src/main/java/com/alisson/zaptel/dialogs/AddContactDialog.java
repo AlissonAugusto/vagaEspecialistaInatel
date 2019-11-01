@@ -39,7 +39,7 @@ public class AddContactDialog extends Dialog implements
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.add_contact_dialog);
-        contactNameDialog = (EditText) findViewById(R.id.contactEmailDialog);
+        contactNameDialog = (EditText) findViewById(R.id.contactNameDialog);
         contactEmailDialog = (EditText) findViewById(R.id.contactEmailDialog);
         buttonOkDialog = (Button) findViewById(R.id.buttonOkDialog);
         buttonCancelDialog = (Button) findViewById(R.id.buttonCancelDialog);

@@ -10,7 +10,7 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Name" />
 
@@ -87,7 +87,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Save User" />
+        android:background="@color/colorAccent"
+        android:text="Save User"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/buttonDeactivateUser"
@@ -95,7 +97,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Deactivate User" />
+        android:background="@color/colorAccent"
+        android:text="Deactivate User"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/buttonLogout"
@@ -103,5 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Logout" />
+        android:background="@color/colorAccent"
+        android:text="Logout"
+        android:textColor="@android:color/white" />
 </LinearLayout>
