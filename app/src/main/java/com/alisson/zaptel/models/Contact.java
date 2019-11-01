@@ -2,7 +2,7 @@ package com.alisson.zaptel.models;
 
 import java.io.Serializable;
 
-public class Contacts implements Serializable {
+public class Contact implements Serializable {
     private long id;
     private String name;
     private String email;
